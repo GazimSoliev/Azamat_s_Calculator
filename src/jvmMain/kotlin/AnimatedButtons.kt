@@ -1,6 +1,4 @@
-import androidx.compose.animation.core.VisibilityThreshold
-import androidx.compose.animation.core.animateDpAsState
-import androidx.compose.animation.core.spring
+import androidx.compose.animation.core.animateIntAsState
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsPressedAsState
@@ -15,7 +13,6 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 @Composable
@@ -32,9 +29,8 @@ fun AnimatedButton(
 ) {
     val isPressed = interactionSource.collectIsPressedAsState()
     var minSize by remember { mutableStateOf(Float.MAX_VALUE.dp) }
-    val radius = if (isPressed.value) minSize / 5f else minSize / 2f
-    val cornerRadius =
-        animateDpAsState(targetValue = radius, animationSpec = spring(visibilityThreshold = Dp.VisibilityThreshold))
+    val radius = if (isPressed.value) 20 else 50
+    val cornerRadius = animateIntAsState(targetValue = radius)
     val currentDensity = LocalDensity.current
     Button(
         onClick,

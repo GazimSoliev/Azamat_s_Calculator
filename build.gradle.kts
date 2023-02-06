@@ -26,6 +26,7 @@ kotlin {
                 implementation(compose.desktop.currentOs)
                 @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
                 implementation(compose.material3)
+                implementation(compose.materialIconsExtended)
             }
         }
         val jvmTest by getting
