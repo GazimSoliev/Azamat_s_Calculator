@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Azamat_s_Calculator-jvm-1.0-SNAPSHOT">
+    <output-path>$PROJECT_DIR$/build/libs</output-path>
+    <root id="archive" name="Azamat_s_Calculator-jvm-1.0-SNAPSHOT.jar">
+      <element id="module-output" name="Azamat_s_Calculator.jvmMain" />
+    </root>
+  </artifact>
+</component>
