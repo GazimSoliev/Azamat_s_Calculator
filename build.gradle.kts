@@ -44,3 +44,16 @@ compose.desktop {
         }
     }
 }
+
+tasks.register<proguard.gradle.ProGuardTask>("obfuscate") {
+    val packageUberJarForCurrentOS by tasks.getting
+    dependsOn(packageUberJarForCurrentOS)
+    val files = packageUberJarForCurrentOS.outputs.files
+    injars(files)
+    outjars(files.map { file -> File(file.parentFile, "${file.nameWithoutExtension}.min.jar") })
+
+    val library = if (System.getProperty("java.version").startsWith("1.")) "lib/rt.jar" else "jmods"
+    libraryjars("${System.getProperty("java.home")}/$library")
+
+    configuration("proguard-rules.pro")
+}

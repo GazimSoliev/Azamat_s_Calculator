@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.BitmapPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.loadImageBitmap
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import resRepository.Resources
 
@@ -61,7 +62,7 @@ fun ShowAzamatPhoto(onBack: () -> Unit) {
                     )
                     Text(
                         text = "Автор фотографии запретил использовать его фото в этом приложении",
-                        style = MaterialTheme.typography.bodyLarge
+                        style = MaterialTheme.typography.bodyLarge.copy(textAlign = TextAlign.Center)
                     )
                 }
 

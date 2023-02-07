@@ -6,7 +6,6 @@ import androidx.compose.ui.text.TextRange
 import androidx.compose.ui.text.input.TextFieldValue
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.collectLatest
 import net.objecthunter.exp4j.ExpressionBuilder
 import ui.calculator_app.CalculatorViewModel
 
@@ -28,19 +27,19 @@ class SimpleViewModel : CalculatorViewModel {
 
     private val scope = CoroutineScope(Dispatchers.Main + Job())
 
-    private val _text = MutableStateFlow(TextFieldValue(""))
+//    init {
+//        scope.launch(Dispatchers.IO) {
+//            _text.collectLatest {
+//                println(it)
+//                println(it.selection.collapsed)
+//                println(it.selection.length)
+//                println(it.selection.start)
+//                println(it.selection.end)
+//            }
+//        }
+//    }
 
-    init {
-        scope.launch(Dispatchers.IO) {
-            _text.collectLatest {
-                println(it)
-                println(it.selection.collapsed)
-                println(it.selection.length)
-                println(it.selection.start)
-                println(it.selection.end)
-            }
-        }
-    }
+    private val _text = MutableStateFlow(TextFieldValue(""))
 
     @Composable
     override fun getText(): TextFieldValue = _text.collectAsState().value
@@ -51,7 +50,6 @@ class SimpleViewModel : CalculatorViewModel {
                 _text.value = replaceSpecSymbols(text)
                 _result.value =
                     runCatching {
-                        println("Test")
                         ExpressionBuilder(replaceSpecSymbolsBack(_text.value.text)).build().evaluate().toString()
                     }.getOrNull()?.replace(regexResult, "") ?: ""
             }
