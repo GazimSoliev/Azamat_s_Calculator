@@ -18,7 +18,7 @@ import ui.AnimatedFilledTonalButton
 fun ButtonNumber(
     modifier: Modifier = Modifier,
     number: String,
-    onClick: () -> Unit
+    onClick: (String) -> Unit
 ) = ButtonUnit(
     modifier = modifier,
     symbol = number,
@@ -31,7 +31,7 @@ fun ButtonNumber(
 fun ButtonAction(
     modifier: Modifier = Modifier,
     action: String,
-    onClick: () -> Unit
+    onClick: (String) -> Unit
 ) = ButtonUnit(
     modifier = modifier,
     onClick = onClick,
@@ -44,7 +44,7 @@ fun ButtonAction(
 fun ButtonSpecialAction(
     modifier: Modifier = Modifier,
     specialAction: String,
-    onClick: () -> Unit
+    onClick: (String) -> Unit
 ) = ButtonUnit(
     modifier = modifier,
     onClick = onClick,
@@ -59,10 +59,10 @@ fun ButtonUnit(
     symbol: String,
     containerColor: Color,
     contentColor: Color,
-    onClick: () -> Unit
+    onClick: (String) -> Unit
 ) = ButtonUnitZero(
     modifier = modifier,
-    onClick = onClick,
+    onClick = { onClick(symbol) },
     containerColor = containerColor,
     contentColor = contentColor
 ) {

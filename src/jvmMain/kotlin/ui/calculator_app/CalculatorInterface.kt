@@ -1,10 +1,7 @@
 package ui.calculator_app
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -17,18 +14,25 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun CalculatorInterface(
     modifier: Modifier = Modifier,
+    result: String,
     text: TextFieldValue,
-    setText: (TextFieldValue) -> Unit
+    setText: (TextFieldValue) -> Unit,
+    equal: () -> Unit,
+    changePhoto: () -> Unit
 ) {
     Surface {
         Column(modifier = modifier, horizontalAlignment = Alignment.CenterHorizontally) {
             InputField(
-                Modifier.height(256.dp).fillMaxWidth().background(
+                modifier = Modifier.height(256.dp).fillMaxWidth().background(
                     MaterialTheme.colorScheme.surfaceVariant,
                     RoundedCornerShape(bottomEnd = 32.dp, bottomStart = 32.dp)
-                ).padding(horizontal = 16.dp, vertical = 32.dp), text, setText
+                ).padding(horizontal = 16.dp, vertical = 32.dp),
+                result = result,
+                text = text,
+                setText = setText
             )
-            Keyboard(modifier = Modifier.weight(1f), text, setText)
+            Spacer(Modifier.height(8.dp))
+            Keyboard(modifier = Modifier.weight(1f), text = text, setText = setText, equal = equal, changePhoto = changePhoto)
         }
     }
 }

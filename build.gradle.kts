@@ -1,4 +1,3 @@
-import org.jetbrains.compose.compose
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 
 plugins {
@@ -27,6 +26,8 @@ kotlin {
                 @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
                 implementation(compose.material3)
                 implementation(compose.materialIconsExtended)
+                implementation("net.objecthunter:exp4j:0.4.8")
+
             }
         }
         val jvmTest by getting
