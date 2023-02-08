@@ -1,4 +1,4 @@
-package ui.calculator_window
+package com.calculator.ui.calculator_window
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Calculate
@@ -11,8 +11,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.ApplicationScope
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.WindowState
-import ui.calculator_app.CalculatorApp
-import ui.theme.md_theme_light_tertiary
+import com.calculator.ui.calculator_app.CalculatorApp
+import com.calculator.ui.theme.md_theme_light_tertiary
 
 @Composable
 fun ApplicationScope.CalculatorWindow() {

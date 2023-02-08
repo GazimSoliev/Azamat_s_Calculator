@@ -1,4 +1,4 @@
-package ui.calculator_app
+package com.calculator.ui.calculator_app
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.input.TextFieldValue

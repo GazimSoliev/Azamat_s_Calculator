@@ -1,4 +1,4 @@
-package ui.calculator_app
+package com.calculator.ui.calculator_app
 
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxSize
@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.style.TextAlign
-import ui.AnimatedFilledTonalButton
+import com.calculator.ui.AnimatedFilledTonalButton
 
 @Composable
 fun ButtonNumber(

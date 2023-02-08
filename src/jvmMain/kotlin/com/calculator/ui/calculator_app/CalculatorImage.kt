@@ -1,4 +1,4 @@
-package ui.calculator_app
+package com.calculator.ui.calculator_app
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -17,15 +17,13 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.loadImageBitmap
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import resRepository.Resources
+import com.calculator.resRepository.Resources
 
 @Composable
 fun ShowAzamatPhoto(onBack: () -> Unit) {
-    val file = Resources.getFile("img.png")
+    val inputStream = Resources.getInputStream("img.png")
     val imageBitmap = remember {
-        file?.run {
-            loadImageBitmap(inputStream())
-        }
+        inputStream?.let(::loadImageBitmap)
     }
     Box {
         imageBitmap?.let {
@@ -61,7 +59,7 @@ fun ShowAzamatPhoto(onBack: () -> Unit) {
                         tint = MaterialTheme.colorScheme.error
                     )
                     Text(
-                        text = "Автор фотографии запретил использовать его фото в этом приложении",
+                        text = "Авторское лицо запретило использовать его фото в этом приложении",
                         style = MaterialTheme.typography.bodyLarge.copy(textAlign = TextAlign.Center)
                     )
                 }

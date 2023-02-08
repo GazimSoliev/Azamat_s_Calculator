@@ -1,4 +1,4 @@
-package ui
+package com.calculator.ui
 
 import androidx.compose.animation.core.animateIntAsState
 import androidx.compose.foundation.BorderStroke

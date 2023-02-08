@@ -1,4 +1,4 @@
-package ui.calculator_window
+package com.calculator.ui.calculator_window
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -7,7 +7,7 @@ import androidx.compose.ui.text.input.TextFieldValue
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableStateFlow
 import net.objecthunter.exp4j.ExpressionBuilder
-import ui.calculator_app.CalculatorViewModel
+import com.calculator.ui.calculator_app.CalculatorViewModel
 
 
 class SimpleViewModel : CalculatorViewModel {

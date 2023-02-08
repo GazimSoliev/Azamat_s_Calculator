@@ -4,7 +4,7 @@
 
 -dontwarn kotlinx.**
 
--keepclasseswithmembers public class com.example.MainKt {
+-keepclasseswithmembers public class com.calculator.MainKt {
     public static void main(java.lang.String[]);
 }
 -keep class org.jetbrains.skia.** { *; }
