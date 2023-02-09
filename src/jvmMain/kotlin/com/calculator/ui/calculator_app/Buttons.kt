@@ -1,7 +1,7 @@
 package com.calculator.ui.calculator_app
 
 import androidx.compose.foundation.layout.RowScope
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -12,7 +12,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.style.TextAlign
-import com.calculator.ui.AnimatedFilledTonalButton
+import androidx.compose.ui.unit.dp
+import com.calculator.ui.animated_button.AnimatedFilledTonalButton
 
 @Composable
 fun ButtonNumber(
@@ -99,7 +100,8 @@ fun IconFilledTonalButton(
     contentColor = MaterialTheme.colorScheme.onTertiaryContainer
 ) {
     Icon(
-        modifier = Modifier.fillMaxSize(0.5f).align(Alignment.CenterVertically),
+        modifier = Modifier.size(32.dp)
+            .align(Alignment.CenterVertically),
         imageVector = imageVector,
         contentDescription = contentDescription
     )

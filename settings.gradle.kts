@@ -1,3 +1,5 @@
+@file:Suppress("SpellCheckingInspection")
+
 pluginManagement {
     repositories {
         google()
@@ -16,7 +18,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("com.guardsquare:proguard-gradle:7.2.0")
+        classpath("com.guardsquare:proguard-gradle:7.3.1")
     }
 }
 

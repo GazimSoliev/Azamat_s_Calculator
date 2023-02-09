@@ -1,30 +1,25 @@
 package com.calculator.ui.calculator_app
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.painter.BitmapPainter
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.loadImageBitmap
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.calculator.resRepository.Resources
 
+@Suppress("SpellCheckingInspection")
 @Composable
-fun ShowAzamatPhoto(onBack: () -> Unit) {
-    val inputStream = Resources.getInputStream("img.png")
-    val imageBitmap = remember {
-        inputStream?.let(::loadImageBitmap)
-    }
+fun ShowAzamatPhoto(imageBitmap: ImageBitmap?, onBack: () -> Unit) {
+    val containerColor = MaterialTheme.colorScheme.surface
+    val contentColor = MaterialTheme.colorScheme.onSurface
     Box {
         imageBitmap?.let {
             Image(
@@ -35,14 +30,16 @@ fun ShowAzamatPhoto(onBack: () -> Unit) {
             )
         }
         Column(modifier = Modifier.fillMaxWidth().align(Alignment.TopCenter)) {
-            IconButton(
-                modifier = Modifier.align(Alignment.Start).padding(8.dp)
-                    .background(MaterialTheme.colorScheme.surface, CircleShape), onClick = onBack
+            FilledTonalIconButton(
+                modifier = Modifier.align(Alignment.Start).padding(8.dp), onClick = onBack,
+                colors = IconButtonDefaults.filledTonalIconButtonColors(
+                    containerColor = containerColor,
+                    contentColor = contentColor
+                )
             ) {
                 Icon(
                     Icons.Default.ArrowBack,
-                    contentDescription = "Back",
-                    tint = contentColorFor(MaterialTheme.colorScheme.surface)
+                    contentDescription = "Back"
                 )
             }
             Spacer(Modifier.height(16.dp))

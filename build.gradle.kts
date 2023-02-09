@@ -1,3 +1,5 @@
+@file:Suppress("SpellCheckingInspection")
+
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 
 plugins {
@@ -19,15 +21,16 @@ kotlin {
         jvmToolchain(11)
         withJava()
     }
+    @Suppress("UNUSED_VARIABLE")
     sourceSets {
         val jvmMain by getting {
             dependencies {
                 implementation(compose.desktop.currentOs)
+                @Suppress("OPT_IN_IS_NOT_ENABLED")
                 @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
                 implementation(compose.material3)
                 implementation(compose.materialIconsExtended)
                 implementation("net.objecthunter:exp4j:0.4.8")
-
             }
         }
         val jvmTest by getting

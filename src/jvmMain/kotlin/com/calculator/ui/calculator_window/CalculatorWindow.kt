@@ -23,7 +23,7 @@ fun ApplicationScope.CalculatorWindow() {
             exitApplication()
         },
         title = "Calculator",
-        state = WindowState(size = DpSize(width = 500.dp, height = 900.dp)),
+        state = WindowState(size = DpSize(width = 420.dp, height = 800.dp)),
         resizable = false,
         icon = Icons.Default.Calculate.let { image ->
             rememberVectorPainter(

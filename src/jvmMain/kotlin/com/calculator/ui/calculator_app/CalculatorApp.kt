@@ -6,11 +6,18 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.loadImageBitmap
+import com.calculator.resRepository.Resources
 import com.calculator.ui.theme.AppTheme
 
 @Composable
 @Preview
 fun CalculatorApp(viewModel: CalculatorViewModel) {
+    val imageBitmap = remember {
+        Resources.getAndUseInputStream("img.png") {
+            it?.let(::loadImageBitmap)
+        }
+    }
     AppTheme {
         Surface(Modifier.fillMaxSize()) {
             var showPhoto by remember { mutableStateOf(false) }
@@ -28,7 +35,7 @@ fun CalculatorApp(viewModel: CalculatorViewModel) {
                 enter = fadeIn() + slideInHorizontally(),
                 exit = fadeOut() + slideOutHorizontally()
             ) {
-                ShowAzamatPhoto { showPhoto = false }
+                ShowAzamatPhoto(imageBitmap) { showPhoto = false }
             }
         }
     }
